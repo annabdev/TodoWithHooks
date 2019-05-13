@@ -5,10 +5,10 @@
 }
 
 .todo-list {
-  background: teal;
   border-radius: 4px;
   padding: 5px;
-  max-width: 4--px;
+  max-width: 400px;
+  text-align: center
 }
 
 .todo {

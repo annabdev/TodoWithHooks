@@ -1,39 +1,22 @@
-import React, { useState,  } from "react";
+import React, { useState, useEffect  } from "react";
 import "./App.css";
 
 
 function Todo ({ todo, index, completeTodo, removeTodo }) {
- //Update
-// handleUpdate = async (e, _id) => {
-//   e.preventDefault();
-//   const update = JSON.stringify(this.state);
-//   await fetch("http://localhost:4000" + _id, {
-//     method: "put",
-//     body: update,
-//     headers: {
-//       "Content-Type": "application/json"
-//     }
-//   });
-//   await this.getTodos();
-// };
-// //Delete
-// handleDelete = async _id => {
-//   await fetch("http://localhost:4000/" + _id, {
-//     method: "DELETE"
-//   });
-//   await this.getTodos();
-// };
+ 
+//  const [data, setDate] = useState({ hits: [] });
+//  useEffect(() => {
+//    const fetchData = async () => {
+//    const result = await fetch(
+//      "http://localhost:4000/",
+//    );
 
-// //Read
-// getTodos = async () => {
-//   return fetch("http://localhost:4000")
-//   .then(results => {
-//     return results.json();
-//   })
-//   .then(results => {
-//     setTodos({ todos: results });
-//   });
-// };
+//    setData(result.data);
+//  };
+//  fetchData();
+//  }, []);
+
+  
   return (
     
 <div 
