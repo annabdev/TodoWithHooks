@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 
@@ -68,7 +68,7 @@ function App() {
       isCompleted: false
     }
   ])
-  getTodos = async () => {
+  const getTodos = async () => {
     return fetch("http://localhost:4200")
     .then(results => {
       return results.json();
@@ -82,7 +82,7 @@ function App() {
   const update = JSON.stringify(useState);
    const result = await fetch(
      "http://localhost:4200/", {
-       method: "put",
+       method: "post",
        body: update,
        headers: {
          "Content-Type": "application/json"
@@ -92,7 +92,7 @@ function App() {
    await getTodos();
 
    getTodos(result);
-   console.log("update worked")
+   console.log("data")
  };
  
  fetchData();
