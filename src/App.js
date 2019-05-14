@@ -68,12 +68,20 @@ function App() {
       isCompleted: false
     }
   ])
-  
+  getTodos = async () => {
+    return fetch("http://localhost:4200")
+    .then(results => {
+      return results.json();
+    })
+    .then(results => {
+      setTodos({ todos: results });
+    })
+  }
  useEffect(() => {
    const fetchData = async () => {
   const update = JSON.stringify(useState);
    const result = await fetch(
-     "http://localhost:6000/", {
+     "http://localhost:4200/", {
        method: "put",
        body: update,
        headers: {
@@ -81,11 +89,12 @@ function App() {
        }
      }
    );
-   await setTodos();
+   await getTodos();
 
-   setTodos(result);
+   getTodos(result);
    console.log("update worked")
  };
+ 
  fetchData();
  }, []);
 
