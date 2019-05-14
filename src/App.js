@@ -3,21 +3,7 @@ import "./App.css";
 
 
 function Todo ({ todo, index, completeTodo, removeTodo }) {
- 
-//  const [data, setDate] = useState({ hits: [] });
-//  useEffect(() => {
-//    const fetchData = async () => {
-//    const result = await fetch(
-//      "http://localhost:4000/",
-//    );
-
-//    setData(result.data);
-//  };
-//  fetchData();
-//  }, []);
-
-  
-  return (
+   return (
     
 <div 
 className="todo"
@@ -81,9 +67,29 @@ function App() {
       text: "Build CRUD App",
       isCompleted: false
     }
-  ]);
+  ])
+  
+ useEffect(() => {
+   const fetchData = async () => {
+  const update = JSON.stringify(useState);
+   const result = await fetch(
+     "http://localhost:6000/", {
+       method: "put",
+       body: update,
+       headers: {
+         "Content-Type": "application/json"
+       }
+     }
+   );
+   await setTodos();
 
-  //used to "complete" an item
+   setTodos(result);
+   console.log("update worked")
+ };
+ fetchData();
+ }, []);
+
+  
   
   //grabs list of existing items, adds new item, and displays whole list
   const addTodo = text => {
@@ -91,6 +97,7 @@ function App() {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
+  //used to "complete" an item
   const completeTodo = index => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
