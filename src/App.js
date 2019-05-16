@@ -69,7 +69,7 @@ function App() {
     }
   ])
   const getTodos = async () => {
-    return fetch("http://localhost:4200")
+    return fetch("http://localhost:4000")
     .then(results => {
       return results.json();
     })
@@ -81,7 +81,7 @@ function App() {
    const fetchData = async () => {
   const update = JSON.stringify(useState);
    const result = await fetch(
-     "http://localhost:4200/", {
+     "http://localhost:4000/", {
        method: "post",
        body: update,
        headers: {

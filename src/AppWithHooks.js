@@ -13,7 +13,7 @@ style={{ textDecoration: todo.isCompleted ? "line-through": ""}}
 
 
 <div>
-  <button onClick={() => completeTodo(index)}>
+  <button onClick={() => handleDelete}>
   Complete
   </button>
   <button onClick={() => removeTodo(index)}>
@@ -49,7 +49,7 @@ class TodoForm extends Component {
 
 
     //Does Delete
-    handleSubmit = async _id => {
+    handleDelete= async _id => {
         await fetch("http://localhost:4000/" + _id, {
             method: "DELETE"
         });
@@ -105,7 +105,7 @@ class TodoForm extends Component {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleUpdate}>
       <input
         type="text"
         className="input"
