@@ -134,7 +134,7 @@ function App() {
     }
   ])
   const getTodos = async () => {
-    return fetch("http://localhost:4200")
+    return fetch("http://localhost:4000")
     .then(results => {
       return results.json();
     })
@@ -142,26 +142,19 @@ function App() {
       setTodos({ todos: results });
     })
   }
- useEffect(() => {
-   const fetchData = async () => {
-  const update = JSON.stringify(useState);
-   const result = await fetch(
-     "http://localhost:4200/", {
-       method: "post",
-       body: update,
-       headers: {
-         "Content-Type": "application/json"
-       }
-     }
-   );
-   await getTodos();
 
-   getTodos(result);
-   console.log("data")
- };
+  const useFetch = ("http://localhost:4000") => {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+      (async () => {
+        const res = await fetch(url);
+        const data = await res.json();
+        setData(data);
+      })();
+    }, [url]);
+    return data;
+  };
  
- fetchData();
- }, []);
 
   
   
